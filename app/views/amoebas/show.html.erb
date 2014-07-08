@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <%= @amoeba.name %>'s talent is <%= @amoeba.talent.name %><br>
+  <%= @amoeba.name %>'s generation is <%= @amoeba.generation %>
+</p>
+<p>Split <%= @amoeba.name %>?</p>
+
 <%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
 <%= link_to 'Back', amoebas_path %>

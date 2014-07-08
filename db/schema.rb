@@ -11,14 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708205538) do
+ActiveRecord::Schema.define(version: 20140708211732) do
+
+  create_table "acts", force: true do |t|
+    t.string   "name"
+    t.datetime "time_of_performance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "amoeba_acts", force: true do |t|
+    t.integer "amoeba_id"
+    t.integer "act_id"
+  end
 
   create_table "amoebas", force: true do |t|
     t.string   "name"
-    t.string   "talent"
     t.integer  "generation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "talent_id"
+  end
+
+  create_table "talents", force: true do |t|
+    t.string "name"
   end
 
 end

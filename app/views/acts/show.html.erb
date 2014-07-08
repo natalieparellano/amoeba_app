@@ -1,4 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @act.name %></h1>
+
+<p><%= @act.name %> is happening at <%= @act.time_of_performance %>.</p>
+
+<p><%= @act.name %>'s amoebas are:</p>
+<ul>
+  <% @act.amoebas.each do |amoeba| %>
+    <li><%= link_to amoeba.name, amoeba %>: <%= amoeba.talent.name %></li>  
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_act_path(@act) %> |
 <%= link_to 'Back', acts_path %>
