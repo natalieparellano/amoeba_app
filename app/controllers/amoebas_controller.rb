@@ -1,5 +1,14 @@
 class AmoebasController < ApplicationController
-  before_action :set_amoeba, only: [:show, :edit, :update, :destroy]
+  before_action :set_amoeba, only: [:split, :show, :edit, :update, :destroy]
+
+  def split
+    @amoeba.split
+
+    respond_to do |format|
+      format.html { redirect_to amoebas_url, notice: 'Amoeba was successfully split.' }
+      format.json { head :no_content }
+    end
+  end 
 
   # GET /amoebas
   # GET /amoebas.json
