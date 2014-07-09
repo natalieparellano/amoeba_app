@@ -2,7 +2,6 @@ class Amoeba < ActiveRecord::Base
   belongs_to :talent
   has_many :amoeba_acts
   has_many :acts, through: :amoeba_acts
-  accepts_nested_attributes_for :amoeba_acts # npa: is this really needed? 
 
   # How to assign the generation to 1 if it is not initialized from split? 
 
