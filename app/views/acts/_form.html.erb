@@ -19,6 +19,11 @@
     <%= f.label :time_of_performance %><br>
     <%= f.datetime_select :time_of_performance, :ampm => true, :minute_step => 15 %>
   </div>
+  <div>
+    <%= f.label :amoeba_ids %><br>
+    <%= f.collection_check_boxes :amoeba_ids, Amoeba.all, :id, :name %>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

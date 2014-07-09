@@ -24,6 +24,11 @@
     <%= f.label :talent_id %><br>
     <%= f.collection_select :talent_id, Talent.all, :id, :name %>
   </div>
+  <div>
+    <%= f.label :act_ids %><br>
+    <%= f.collection_check_boxes :act_ids, Act.all, :id, :name %>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
