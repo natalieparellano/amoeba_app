@@ -1,10 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @amoeba.name %></h1>
+
 <p>
   <%= @amoeba.name %>'s talent is <%= @amoeba.talent.name %><br>
-  <%= @amoeba.name %>'s generation is <%= @amoeba.generation %>
+  <%= @amoeba.name %>'s generation is <%= @amoeba.generation %><br>
+  <% if @amoeba.acts.size > 0 %>
+    <%= @amoeba.name %> is part of the following acts:
+    <ul>
+      <% @amoeba.acts.each do |act| %>
+        <li><%= act.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </p>
-<p>Split <%= @amoeba.name %>?</p>
+
+<%= form_tag split_amoeba_path(@amoeba) do -%>
+  <%= submit_tag "Split #{@amoeba.name}?" %>
+<% end %><br>
 
 <%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
 <%= link_to 'Back', amoebas_path %>

@@ -12,6 +12,18 @@
   <% end %>
 
   <div class="actions">
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :generation %><br>
+      <%= f.number_field :generation %>
+    </div>
+    <div class="field">
+      <%= f.label :talent_id %><br>
+      <%= f.collection_select :talent_id, Talent.all, :id, :name %>
+    </div>
     <%= f.submit %>
   </div>
 <% end %>

@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Listing amoebas</h1>
 
 <table>
@@ -8,9 +10,18 @@
   </thead>
 
   <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Generation</strong></td>
+        <td><strong>Talent</strong></td>
+      </tr>
     <% @amoebas.each do |amoeba| %>
       <tr>
         <td><%= amoeba.name %></td>
+        <td><%= amoeba.generation %></td>
+        <td><%= amoeba.talent.name %></td>
+
+        <td><%= link_to 'Split', split_amoeba_path(amoeba), method: "post" %></td>
         <td><%= link_to 'Show', amoeba %></td>
         <td><%= link_to 'Edit', edit_amoeba_path(amoeba) %></td>
         <td><%= link_to 'Destroy', amoeba, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -18,7 +29,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Amoeba', new_amoeba_path %>

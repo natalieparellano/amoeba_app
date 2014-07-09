@@ -4,12 +4,32 @@
 
 <p><%= @act.name %> is happening at <%= @act.time_of_performance %>.</p>
 
-<p><%= @act.name %>'s amoebas are:</p>
-<ul>
-  <% @act.amoebas.each do |amoeba| %>
-    <li><%= link_to amoeba.name, amoeba %>: <%= amoeba.talent.name %></li>  
-  <% end %>
-</ul>
+<% if @act.amoebas.size > 0 %>
+  <p><%= @act.name %>'s amoebas are:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><strong>Name</strong></td>
+          <td><strong>Generation</strong></td>
+          <td><strong>Talent</strong></td>
+        </tr>
+      <% @act.amoebas.each do |amoeba| %>
+        <tr>
+          <td><%= amoeba.name %></td>
+          <td><%= amoeba.generation %></td>
+          <td><%= amoeba.talent.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>
 
 <%= link_to 'Edit', edit_act_path(@act) %> |
 <%= link_to 'Back', acts_path %>

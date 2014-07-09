@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :amoebas
 
+  post 'amoebas/:id/split' => 'amoebas#split', as: :split_amoeba
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
